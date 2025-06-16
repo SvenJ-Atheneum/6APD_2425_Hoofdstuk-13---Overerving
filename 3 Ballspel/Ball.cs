@@ -8,14 +8,14 @@ namespace _3_Ballspel
 {
     class Ball
     {
-        public int X { get { return x; } }
-        public int Y { get { return y; } }
+        public int X { get { return x; } protected set { x = value; } }
+        public int Y { get { return y; } protected set { y = value; } }
         private int x = 0;
         private int y = 0;
         protected int vx = 0;
         protected int vy = 0;
         protected char drawChar = 'O';
-        protected ConsoleColor drawColor = ConsoleColor.Red;
+        protected ConsoleColor drawColor = ConsoleColor.Yellow;
 
         public Ball(int xin, int yin, int vxin, int vyin)
         {
@@ -25,7 +25,7 @@ namespace _3_Ballspel
             vy = vyin;
         }
 
-        public void Update()
+        public virtual void Update()
         {
             x += vx;
             y += vy;

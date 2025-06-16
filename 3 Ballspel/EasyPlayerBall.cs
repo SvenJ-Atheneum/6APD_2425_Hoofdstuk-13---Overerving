@@ -6,29 +6,24 @@ using System.Threading.Tasks;
 
 namespace _3_Ballspel
 {
-    class PlayerBall : Ball
+    class EasyPlayerBall:PlayerBall
     {
-        public PlayerBall(int xin, int yin, int vxin, int vyin) : base(xin, yin, vxin, vyin)
-        {
-            drawChar = 'X';
-            drawColor = ConsoleColor.Green;
-        }
-
-        public virtual void ChangeVelocity(ConsoleKeyInfo richting)
+        public EasyPlayerBall(int xin, int yin, int vxin, int vyin) : base(xin, yin, 0, 0) { }
+        public override void ChangeVelocity(ConsoleKeyInfo richting)
         {
             switch (richting.Key)
             {
                 case ConsoleKey.UpArrow:
-                    vy--;
+                    this.Y--;
                     break;
                 case ConsoleKey.DownArrow:
-                    vy++;
+                    this.Y++;
                     break;
                 case ConsoleKey.LeftArrow:
-                    vx--;
+                    this.X--;
                     break;
                 case ConsoleKey.RightArrow:
-                    vx++;
+                    this.X++;
                     break;
                 default:
                     break;
